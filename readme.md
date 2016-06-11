@@ -12,14 +12,16 @@
         <constant name="struts.custom.i18n.resources" value="message_zh_CN"/>
         <constant name="struts.i18n.encoding" value="utf-8"/>
     第五步：配置JSP:
+    '''
     <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-    <%@ taglib prefix="s" uri="/struts-tags" %>
-    <html lang="zh-CN">
-    <head>
-        <meta charset="UTF-8"/>
-        <title><s:text name="errorPage"/></title>
-    </head>
-    <body>
-    <s:text name="failTip"/>
-    </body>
-    </html>
+        <%@ taglib prefix="s" uri="/struts-tags" %>
+        <html lang="zh-CN">
+        <head>
+            <meta charset="UTF-8"/>
+            <title><s:text name="errorPage"/></title>
+        </head>
+        <body>
+        <s:text name="failTip"/>
+        </body>
+        </html>
+    '''
