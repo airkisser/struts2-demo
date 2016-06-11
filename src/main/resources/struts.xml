@@ -25,10 +25,22 @@
     <package name="airkisser" namespace="/" extends="struts-default">
         <!--配置默认的action，例如，当访问出现404时提供人性化显示-->
         <default-action-ref name="simpleViewResultAction"/>
+        <global-results>
+            <result name="sql">/WEB-INF/content/exception.jsp</result>
+            <result name="root">/WEB-INF/content/exception.jsp</result>
+        </global-results>
+        <!--全局异常-->
+        <global-exception-mappings>
+            <exception-mapping exception="java.sql.SQLException" result="sql"/>
+            <exception-mapping exception="java.lang.Exception" result="root"/>
+        </global-exception-mappings>
         <action name="login" class="com.airkisser.exercise.struts.action.LoginAction">
+            <!--局部异常-->
+            <exception-mapping exception="com.airkisser.exercise.struts.MyException" result="my"/>
             <result name="success">/WEB-INF/content/success.jsp</result>
             <result name="error">/WEB-INF/content/error.jsp</result>
             <result name="input">/WEB-INF/content/loginForm.jsp</result>
+            <result name="my">/WEB-INF/content/exception.jsp</result>
         </action>
         <action name="*.jsp">
             <result>/WEB-INF/content/{1}.jsp</result>
