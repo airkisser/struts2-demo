@@ -23,13 +23,18 @@
     <constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
 
     <package name="airkisser" namespace="/" extends="struts-default">
+        <!--配置默认的action，例如，当访问出现404时提供人性化显示-->
+        <default-action-ref name="simpleViewResultAction"/>
         <action name="login" class="com.airkisser.exercise.struts.action.LoginAction">
             <result name="success">/WEB-INF/content/success.jsp</result>
             <result name="error">/WEB-INF/content/error.jsp</result>
             <result name="input">/WEB-INF/content/loginForm.jsp</result>
         </action>
-        <action name="*">
+        <action name="*.jsp">
             <result>/WEB-INF/content/{1}.jsp</result>
+        </action>
+        <action name="simpleViewResultAction" class="com.airkisser.exercise.struts.action.SimpleViewResultAction">
+            <result name="success">/WEB-INF/content/default.jsp</result>
         </action>
     </package>
 </struts>
