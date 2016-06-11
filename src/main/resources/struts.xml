@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.custom.i18n.resources" value="message_zh_CN"/>
+    <constant name="struts.i18n.encoding" value="utf-8"/>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.devMode" value="true"/>
+
+    <package name="airkisser" namespace="/" extends="struts-default">
+        <action name="login" class="com.airkisser.exercise.struts.action.LoginAction">
+            <result name="success">/WEB-INF/content/success.jsp</result>
+            <result name="error">/WEB-INF/content/error.jsp</result>
+            <result name="input">/WEB-INF/content/loginForm.jsp</result>
+        </action>
+        <action name="*">
+            <result>/WEB-INF/content/{1}.jsp</result>
+        </action>
+    </package>
+</struts>
